@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full px-14 py-5 flex items-center justify-between">
+    <div className="w-full lg:px-14 px-5 py-5 flex items-center justify-between">
       <div className="flex items-center gap-2">
         <h1 className="text-3xl">ZenPose</h1>
         <span className="text-2xl">

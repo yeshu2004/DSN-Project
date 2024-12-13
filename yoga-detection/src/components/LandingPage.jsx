@@ -5,7 +5,7 @@ const LandingPage = () => {
   return (
     <div className="h-screen w-full">
       <Navbar />
-      <div className="h-[80vh] w-full px-10 overflow-hidden">
+      <div className="h-[80vh] w-full px-5 lg:px-10 overflow-hidden">
         <div
           className="h-full w-full rounded-[1.5rem] flex items-center justify-center text-center bg-cover bg-center"
           style={{

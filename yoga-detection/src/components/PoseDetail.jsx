@@ -1,5 +1,6 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { TbYoga } from "react-icons/tb";
 
 const PoseDetail = () => {
   const { name } = useParams();
@@ -17,8 +18,10 @@ const PoseDetail = () => {
           throw new Error("Failed to fetch yoga pose details");
         }
         const data = await response.json();
-        console.log(data)
-        const selectedPose = data.find((item) => item.sanskrit_name.toString() === name);
+        console.log(data);
+        const selectedPose = data.find(
+          (item) => item.sanskrit_name.toString() === name
+        );
 
         if (!selectedPose) {
           throw new Error("Pose not found");
@@ -44,44 +47,58 @@ const PoseDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white w-full px-10 py-20">
-      <div className="max-w-4xl mx-auto bg-white text-black rounded-xl">
-
+    <div className="min-h-screen bg-white w-full px-10 py-10">
+      <div className="flex items-center justify-between">
+        <Link to={"/"} className="w-fit flex items-center gap-2 pb-5">
+          <h1 className="text-3xl">ZenPose</h1>
+          <span className="text-2xl">
+            <TbYoga />
+          </span>
+        </Link>
+        <Link to={"/"} className="">
+            <h1 className="hover:text-red-600 text-red-500 font-semibold">Back to Home</h1>
+        </Link>
+      </div>
+      <div className="bg-white text-black rounded-xl">
         {/* Title */}
-        <h1 className="text-3xl font-bold mb-2 text-blue-600 italic underline">{pose.english_name}</h1>
-        <h2 className="text-xl italic mb-5">{pose.sanskrit_name}</h2>
+        <h1 className="text-3xl font-bold mb-2 text-blue-600 italic underline">
+          {pose.sanskrit_name}
+        </h1>
+        <h2 className="text-xl italic mb-5">{pose.english_name}</h2>
 
-        {/* Description */}
+        {/* Procedure */}
         <div className="mb-5">
           <h3 className="text-2xl font-semibold pb-3 italic">Procedure:</h3>
-          {
-            pose.procedure.map((line, index) => (
-              <p key={index} className="pb-2">{line}</p>
-            ))
-          }
+          {pose.procedure.map((line, index) => (
+            <p key={index} className="pb-1 text-lg">
+              {index+1}) {line}
+            </p>
+          ))}
         </div>
 
         {/* Benefits */}
         {pose.benefits && (
           <div className="mb-5">
             <h3 className="text-2xl font-semibold pb-3 italic">Benefits:</h3>
-            {
-                pose.benefits.map((line, index) => (
-                  <p key={index} className="pb-1">{line}</p>
-                ))
-            }
+            {pose.benefits.map((line, index) => (
+              <p key={index} className="pb-1 text-lg">
+                {line}
+              </p>
+            ))}
           </div>
         )}
 
-        {/* Precautions */}
+        {/* target_body_parts */}
         {pose.target_body_parts && (
           <div className="mb-5">
-            <h3 className="text-2xl font-semibold italic pb-3">Target body parts:</h3>
-            {
-                pose.target_body_parts.map((line, index) => (
-                  <p key={index} className="pb-1">{line}</p>
-                ))
-            }
+            <h3 className="text-2xl font-semibold italic pb-3">
+              Target body parts:
+            </h3>
+            {pose.target_body_parts.map((line, index) => (
+              <p key={index} className="pb-1 text-lg">
+                {line}
+              </p>
+            ))}
           </div>
         )}
 
