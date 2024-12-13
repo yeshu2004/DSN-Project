@@ -6,18 +6,25 @@ import YogaPractice from "./components/YogaPractice";
 import Lenis from 'lenis'
 
 const App = () => {
-  
-  // eslint-disable-next-line no-unused-vars
-  const lenis = new Lenis({
-    autoRaf: true,
-  });
-
+    // eslint-disable-next-line no-unused-vars
+    const lenis = new Lenis({
+      autoRaf: true,
+    });
+    
   return (
     <div className="App">
-      <LandingPage/>
-      <AboutPage/>
-      <YogaPractice/>
-      <ContactPage/>
+      <div id="landing-page">
+        <LandingPage />
+      </div>
+      <div id="about-page">
+        <AboutPage />
+      </div>
+      <div id="yoga-practice">
+        <YogaPractice />
+      </div>
+      <div id="contact-page">
+        <ContactPage />
+      </div>
     </div>
   );
 };
