@@ -47,7 +47,7 @@ const PoseDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white w-full px-10 py-10">
+    <div className="min-h-screen bg-white w-full px-10 lg:px-14 py-10">
       <div className="flex items-center justify-between">
         <Link to={"/"} className="w-fit flex items-center gap-2 pb-5">
           <h1 className="text-3xl">ZenPose</h1>

@@ -1,5 +1,6 @@
 import { TbYoga } from "react-icons/tb";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
   const handleScroll = (sectionId) => {
@@ -37,15 +38,12 @@ const Navbar = () => {
           Contact Us
         </button>
       </div>
-      <button
-        onClick={() => handleScroll("landing-page")}
-        className="flex items-center gap-2 rounded-full border px-2 py-1"
-      >
+      <Link to={"/Camera"} className="flex items-center gap-2 rounded-full border px-2 py-1">
         <h1>Start Now</h1>
         <span className="bg-slate-800 text-white p-1 rounded-full">
           <IoIosArrowRoundForward className="-rotate-45 text-lg" />
         </span>
-      </button>
+      </Link>
     </div>
   );
 };
